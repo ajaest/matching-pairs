@@ -22,12 +22,6 @@ BasicGame.Game.prototype = {
         this.totaltime = 0;
         this.totalclicks = 0;
 
-
-        this.music = this.add.audio('music',1,true);
-        if(playmusic==true){
-            this.music.play('',0,1,true);
-        }
-
         this.blipsound = this.add.audio('blip');
 
         this.timetext = this.add.bitmapText(this.world.centerX,10,'font','0',30);
@@ -38,25 +32,9 @@ BasicGame.Game.prototype = {
         this.backButton.scale.setTo(0.4,0.4);
         this.backButton.anchor.setTo(0,1);
 
-        this.musicButton = this.add.button(this.world.width-10, this.world.height - 5, 'musicbutton', this.changemusic, this, 1,0,2);
-        this.musicButton.scale.setTo(0.4,0.4);
-        this.musicButton.anchor.setTo(1,1);
 	},
 
-    changemusic : function(){
-        if(playmusic==true){
-            this.music.stop();
-            playmusic = false;
-        }
-        else{
-            this.music.play();
-            playmusic = true;
-        }
-    },
-
     startGame: function (pointer) {
-
-        this.music.stop();
 
         this.state.start('MainMenu');
 
@@ -74,7 +52,6 @@ BasicGame.Game.prototype = {
             if(this.level==6){
                 score = this.totaltime;
                 clicks = this.totalclicks;
-                this.music.stop();
                 this.state.start('EndScreen');
             }
             this.toggle = true;

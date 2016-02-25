@@ -28,11 +28,8 @@ BasicGame.Preloader.prototype = {
 		this.load.atlas('spriteset', 'assets/spritesheet.png', 'assets/spritesheet.jsona');
 		this.load.spritesheet('play','assets/play.png',400,110);
 		this.load.spritesheet('back','assets/back.png',400,110);
-		this.load.spritesheet('musicbutton','assets/music.png',400,110);
 		this.load.bitmapFont('font', 'assets/fnt2_0.png', 'assets/fnt2.fnt');
-		this.load.audio('music', ['assets/music.mp3','assets/music.ogg','assets/music.wav','assets/music.m4a']);
 		this.load.audio('blip', ['assets/blip.mp3','assets/blip.ogg','assets/blip.wav','assets/blip.m4a']);
-
 
 	},
 
@@ -44,13 +41,8 @@ BasicGame.Preloader.prototype = {
 
 	update: function () {
 
-		
-		
-		if (this.cache.isSoundDecoded('music') && this.ready == false)
-		{
-			this.ready = true;
-			this.state.start('MainMenu');
-		}
+		this.ready = true;
+		this.state.start('MainMenu');
 
 	}
 
